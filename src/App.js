@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
+import Contact from './components/Contact';
 import Feature from './components/Feature';
+import Footer from './components/Footer';
 import Intro from './components/Intro';
 import Navbar from './components/Navbar';
 import Price from './components/Price';
@@ -38,6 +40,7 @@ const PriceShape = styled.div`
   background-color: crimson;
 `;
 function App() {
+  const smallScreen = window.screen.width <= 480 ? true : false;
   return (
     <>
       <Container>
@@ -51,11 +54,15 @@ function App() {
       </Container>
       <Container>
         <Service />
-        <ServiceShape />
+        {!smallScreen && <ServiceShape />}
       </Container>
       <Container>
         <Price />
         <PriceShape />
+      </Container>
+      <Container>
+        <Contact />
+        <Footer />
       </Container>
     </>
   );
